@@ -6,10 +6,23 @@ const inventory = [
   { type: "machine", value: 77 },
 ];
 
-console.log(
-  inventory
-    .filter((item) => item.type === "machine")
-    .reduce((pre, cur) => {
-      return pre + cur.value;
-    }, 0)
-);
+// Cách shorthand
+// console.log(
+//   inventory
+//     .filter((item) => item.type === "machine")
+//     .reduce((pre, cur) => {
+//       return pre + cur.value;
+//     }, 0)
+// );
+
+// Cách thông thường
+let totalMachineValue = inventory
+  .filter((item) => {
+    if (item.type === "machine") {
+      return item.value;
+    }
+  })
+  .reduce((pre, cur) => {
+    return pre + cur.value;
+  }, 0);
+console.log(totalMachineValue);
